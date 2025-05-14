@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hayrettin Calban - Özgeçmiş</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="profile-section">
+                <img src="file.jpg" alt="Hayrettin Calban" class="profile-img">
+                <h1>Hayrettin Calban</h1>
+                <p class="subtitle">Oyun Geliştirici & Bilgisayar Mühendisi</p>
+                <p class="student-id">Öğrenci No: <strong>2210205019</strong></p>
+            </div>
+        </header>
+
+        <main>
+            <section class="contact-info">
+                <h2><i class="fas fa-address-card"></i> İletişim Bilgileri</h2>
+                <ul>
+                    <li><i class="fas fa-phone"></i> 0553 048 89 39</li>
+                    <li><i class="fas fa-envelope"></i> hayrettin2002@hotmail.com</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Karabük, Türkiye</li>
+                </ul>
+            </section>
+
+            <section class="about">
+                <h2><i class="fas fa-user"></i> Hakkımda</h2>
+                <p>Karabük Üniversitesi Bilgisayar Mühendisliği %30 2. sınıf öğrencisiyim. Oyun Geliştirme ile ilgileniyorum.</p>
+            </section>
+
+            <section class="education">
+                <h2><i class="fas fa-graduation-cap"></i> Eğitim</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <h3>Karabük Üniversitesi</h3>
+                        <p class="degree">Bilgisayar Mühendisliği - Lisans</p>
+                        <p class="date">2022 - 2027</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="experience">
+                <h2><i class="fas fa-briefcase"></i> İş Deneyimi</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <h3>Karabük Demir Çelik Enstitüsü</h3>
+                        <p class="position">3D Modelleme - Stajyer</p>
+                        <p class="description">İş Sağlığı ve Güvenliği temalı oyun geliştirdik.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="skills">
+                <h2><i class="fas fa-code"></i> Beceriler</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>Programlama Dilleri</h3>
+                        <ul>
+                            <li>C#</li>
+                            <li>Html</li>
+                            <li>Css</li>
+                            <li>Javascript</li>
+                            <li>Php</li>        
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Oyun Geliştirme</h3>
+                        <ul>
+                            <li>Unity</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>3D Modelleme</h3>
+                        <ul>
+                            <li>Blender</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="projects">
+                <h2><i class="fas fa-gamepad"></i> Projeler</h2>
+                <div class="swiper project-slider">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="project-content">
+                                <h3>HİKARİ</h3>
+                                <p class="project-description">
+                                    "Miras" temasını katana üzerinden işlediğimiz bir 2D aksiyon oyunudur. Tamamen ekip tarafından tasarlanan çizimler ve kısa ama etkileyici bir hikayeyle 48 saatte tamamlanmıştır. 🎮✨
+                                </p>
+                                <div class="project-images">
+                                    <img class="photo" src="oyun1.png" alt="Proje Görseli 1" onclick="openLightbox(this)">
+                                    <img class="photo" src="oyun2.png" alt="Proje Görseli 2" onclick="openLightbox(this)">
+                                    <img class="photo" src="oyun3.png" alt="Proje Görseli 3" onclick="openLightbox(this)">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <span class="close-button">&times;</span>
+        <img id="lightbox-img" class="lightbox-content" src="" alt="Büyütülmüş görsel">
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        const swiper = new Swiper('.project-slider', {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            loop: true,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
+
+        // Lightbox functionality
+        function openLightbox(img) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            lightbox.style.display = 'flex';
+            lightboxImg.src = img.src;
+            document.body.style.overflow = 'hidden'; // Prevent scrolling when lightbox is open
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.style.display = 'none';
+            document.body.style.overflow = 'auto'; // Re-enable scrolling
+        }
+
+        // Close lightbox when clicking the close button
+        document.querySelector('.close-button').addEventListener('click', function(e) {
+            e.stopPropagation(); // Prevent the click from bubbling up to the lightbox
+            closeLightbox();
+        });
+
+        // Close lightbox when pressing Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeLightbox();
+            }
+        });
+    </script>
+</body>
+</html> 
